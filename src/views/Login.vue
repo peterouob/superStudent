@@ -26,17 +26,18 @@
 <script setup lang="ts">
 import {reactive,ref} from "vue";
 import type {FormInstance,FormRules} from "element-plus";
+import { InternalRuleItem } from 'async-validator/dist-types/interface'
 import {useRouter} from "vue-router"
 
 const relFormRef = ref<FormInstance>()
 const router = useRouter()
 const error = ref<Error>()
-const validTeam = (rule :any,value:any,callback:any)=>{
+const validTeam = (rule : InternalRuleItem,value:string,callback:(error?:string|Error|undefined)=>void)=>{
   if(value === ""){
     callback(new Error('請輸入隊伍名稱'))
   }
 }
-const validCode = (rule :any,value:any,callback:any)=>{
+const validCode = (rule :InternalRuleItem,value:string,callback:(error?:string|Error|undefined)=>void)=>{
   if(value === ""){
     callback(new Error('請輸入隊伍代碼'))
   }
