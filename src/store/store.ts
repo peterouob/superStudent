@@ -6,12 +6,81 @@ const useStore = defineStore('statId',{
         return{
             login:false,
             userAns1:false,
+            userAns2:false,
             power:0,
+            //主線
             item1:true,
+            item2:false,
+            item3:false,
+            item4:false,
+            item5:false,
+            item6:false,
+            item7:false,
+            item8:false,
+            item9:false,
+            item10:false,
+            item11:false,
+            item12:false,
+            item13:false,
+            item14:false,//石板1號
+            //主線1End
+            item15:false,
+            item16:false,
+            item17:false,
+            item18:false,
+            item19:false,
+            item20:false,
+            item21:false,
+            item22:false,
+            item23:false,
+            item24:false,
+            item25:false,
+            item26:false,//石板2號
+            //主線２End
+            item27:false,
+            item28:false,
+            item29:false,
+            item30:false,
+            item31:false,
+            item32:false,
+            item33:false,
+            item34:false,
+            item35:false,
+            item36:false,
+            item37:false,
+            item38:false,
+            item39:false,
+            item40:false,//石板3號
+            //主線3END
+            item41:false,
+            item42:false,
+            item43:false,
+            item44:false,
+            item45:false,
+            item46:false,
+            item47:false,
+            item48:false,
+            item49:false,
+            item50:false,
+            item51:false,//石板四號
+            //主線4END
+            item52:false,
+            item53:false,
+            item54:false,
+            item55:false,
+            item56:false,
+            item57:false,
+            item58:false,
+            item59:false,
+            item60:false,
+            item61:false,
+            item62:false,
+            item63:false,//石板五號
+            //主線5End
         }
     }
 })
 
-export default useStore
+export default useStore;
 
 //userAns1

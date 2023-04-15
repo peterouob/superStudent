@@ -2,7 +2,7 @@
   <div>
     <div class="navbar" v-if="store.login">
       <el-menu :default-active="activeIndex" mode="horizontal" >
-        <h2 class="a power">信望值</h2><h2 class="a power">:{{store.power}}</h2>
+        <el-menu-item index="6" class="a">信望值</el-menu-item>
         <el-menu-item index="5"><RouterLink to="/home" class="a">主頁</RouterLink></el-menu-item>
         <el-menu-item index="1" ><RouterLink to="/bag" class="a">背包</RouterLink></el-menu-item>
         <el-menu-item index="2"><RouterLink to="/clue" class="a">線索</RouterLink></el-menu-item>

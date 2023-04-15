@@ -1,47 +1,39 @@
 <template>
   <div class="demo-image__placeholder">
 
-      <div v-if="!store.userAns1" style="display: flex;justify-content: center;align-items: center">
-        <h1>Hello</h1>
-        <button @click="test">Click</button>
-      </div>
-      <div v-if="store.userAns1">
-        <span style="align-items: center; display: flex;justify-content: center;margin-top: 1.5rem">石板5</span>
+      <div v-if="!store.item14">
         <div class="img">
-          <el-image :src="src"  />
+          <el-image @click="stone1" :src="src"  />
         </div>
       </div>
 
-      <div class="block" v-if="store.userAns1">
-        <span class="demonstration">石板1</span>
-        <el-image :src="src" />
+      <div class="block" v-if="!store.item26">
+        <el-image @click="stone2" :src="src" />
       </div>
 
-      <div class="block" v-if="store.userAns1">
-        <span class="demonstration">石板2</span>
-        <el-image :src="src"/>
+      <div class="block" v-if="!store.item40">
+        <el-image @click="stone3" :src="src"/>
       </div>
-      <div class="block" v-if="store.userAns1">
-        <span class="demonstration">石板3</span>
-        <el-image :src="src"/>
+      <div class="block" v-if="!store.item51">
+        <el-image @click="stone4" :src="src"/>
       </div>
-      <div class="block" v-if="store.userAns1">
-        <span class="demonstration">石板4</span>
-        <el-image :src="src"/>
+      <div class="block" v-if="!store.item63">
+        <el-image @click="stone5" :src="src"/>
       </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import {Ref,ref} from "vue";
-import {RouterView,RouterLink,useRouter} from 'vue-router'
 import useStore from "../store/store";
+import {ElMessageBox} from "element-plus";
+
 const store = useStore()
 
 const src =
     'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
-const test = ()=>{
-  store.userAns1 = true
+
+const stone1 = ()=>{
+  ElMessageBox.alert("維護世界和平的圖騰","(石板一號)未知圖騰")
 }
 </script>
 
@@ -68,6 +60,7 @@ const test = ()=>{
 }
 
 .demo-image__placeholder{
+  margin-top: 5rem;
   animation: dot 2s infinite steps(3, start);
   overflow: hidden;
 }

@@ -21,12 +21,11 @@
 
 <script setup lang="ts">
 import {reactive,ref,onBeforeMount} from "vue";
-import type {FormInstance,FormRules} from "element-plus";
+import type {FormRules} from "element-plus";
 import { InternalRuleItem } from 'async-validator/dist-types/interface'
 import {useRouter} from "vue-router"
 import useStore from "../store/store";
 const store = useStore()
-const relFormRef = ref<FormInstance>()
 const router = useRouter()
 const error = ref<Error>()
 const validTeam = (rule : InternalRuleItem,value:string,callback:(error?:string|Error|undefined)=>void)=>{

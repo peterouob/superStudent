@@ -7,6 +7,7 @@ import Map from '../views/Map.vue'
 import Any from '../views/Any.vue'
 import PowerLose from '../components/power-lose.vue'
 import Inc from '../components/power-inc.vue'
+import Yimeow from '../components/yimeow.vue'
 const routes : RouteRecordRaw[]=[
     {
         path:'/home',
@@ -47,6 +48,11 @@ const routes : RouteRecordRaw[]=[
         path:'/inc',
         name:'power-inc',
         component:Inc
+    },
+    {
+        path:'/yimeow',
+        name:'yimeow',
+        component:Yimeow
     }
 ]
 
