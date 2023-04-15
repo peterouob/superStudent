@@ -10,12 +10,8 @@
           <el-input v-model="ruleForm.team"></el-input>
         </el-form-item>
 
-        <el-form-item label="組別代碼" prop="code" class="code">
-          <el-input v-model="ruleForm.code"></el-input>
-        </el-form-item>
-
         <el-form-item label="" prop="">
-          <el-button @click="submitForm(relFormRef)" class="el-button">進入</el-button>
+          <el-button @click="submitForm" class="el-button">進入</el-button>
         </el-form-item>
 
       </el-form>
@@ -24,11 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import {reactive,ref} from "vue";
+import {reactive,ref,onBeforeMount} from "vue";
 import type {FormInstance,FormRules} from "element-plus";
 import { InternalRuleItem } from 'async-validator/dist-types/interface'
 import {useRouter} from "vue-router"
-
+import useStore from "../store/store";
+const store = useStore()
 const relFormRef = ref<FormInstance>()
 const router = useRouter()
 const error = ref<Error>()
@@ -37,11 +34,11 @@ const validTeam = (rule : InternalRuleItem,value:string,callback:(error?:string|
     callback(new Error('請輸入隊伍名稱'))
   }
 }
-const validCode = (rule :InternalRuleItem,value:string,callback:(error?:string|Error|undefined)=>void)=>{
-  if(value === ""){
-    callback(new Error('請輸入隊伍代碼'))
+onBeforeMount(()=>{
+  if(store.login === true){
+    router.push("/home")
   }
-}
+})
 const ruleForm = reactive({
   team:'',
   code:''
@@ -49,12 +46,12 @@ const ruleForm = reactive({
 
 const rules = reactive<FormRules>({
   team:[{validator:validTeam,trigger:'blur'}],
-  code:[{validator:validCode,trigger:'blur'}]
 })
 
 const submitForm = async() => {
   try{
-    if(ruleForm.team === "1" && ruleForm.code === "1"){
+    if(ruleForm.team === "1"){
+      store.login = true;
       await router.push("/home")
     }
   }
@@ -93,8 +90,5 @@ const submitForm = async() => {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
-}
-.el-button-clear{
-  margin-top: 7rem;
 }
 </style>

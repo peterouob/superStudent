@@ -5,39 +5,48 @@ import Bag from '../views/Bag.vue'
 import Clue from '../views/Clue.vue'
 import Map from '../views/Map.vue'
 import Any from '../views/Any.vue'
-
+import PowerLose from '../components/power-lose.vue'
+import Inc from '../components/power-inc.vue'
 const routes : RouteRecordRaw[]=[
     {
         path:'/home',
         name:'home',
         component:Home,
-        children:[
-            {
-                path:'/bag',
-                name:'bag',
-                component:Bag
-            },
-            {
-                path:'/clue',
-                name:'clue',
-                component:Clue
-            },
-            {
-                path:'/map',
-                name:'map',
-                component:Map
-            },
-            {
-                path:'/any',
-                name:'any',
-                component:Any
-            }
-        ]
+    },
+    {
+        path:'/bag',
+        name:'bag',
+        component:Bag
+    },
+    {
+        path:'/clue',
+        name:'clue',
+        component:Clue
+    },
+    {
+        path:'/map',
+        name:'map',
+        component:Map
+    },
+    {
+        path:'/any',
+        name:'any',
+        component:Any
     },
     {
         path:'/',
         name:'login',
         component:Login
+    },
+    {
+        path:'/dec',
+        name:'power-lose',
+        component:PowerLose
+    },
+    {
+        path:'/inc',
+        name:'power-inc',
+        component:Inc
     }
 ]
 
