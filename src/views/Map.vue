@@ -104,12 +104,16 @@ const src =
   }
   .container{
     display: block;
+    margin-right: 9rem;
   }
-  .chat{
-    margin-right: 10px;
+  .name{
+    margin-left: 6rem;
   }
   .img{
     margin-right: 40px;
+  }
+  .message{
+    margin-right: -4rem;
   }
 }
 </style>

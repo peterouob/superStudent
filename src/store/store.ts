@@ -4,10 +4,12 @@ const useStore = defineStore('statId',{
     persist:true,
     state:()=>{
         return{
+            //progress
+            power:0,
+            //user
             login:false,
             userAns1:false,
             userAns2:false,
-            power:0,
             //主線
             item1:true,
             item2:false,
@@ -77,6 +79,7 @@ const useStore = defineStore('statId',{
             item62:false,
             item63:false,//石板五號
             //主線5End
+            theEnd:false,
         }
     }
 })

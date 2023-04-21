@@ -1,31 +1,49 @@
 <template>
-  <div class="demo-image__placeholder">
+  <main>
+    <div v-if="store.theEnd" style="display: flex;align-items: center;justify-content: center">
+      <button class="theEndBtn">Click</button>
+    </div>
+    <div class="demo-image__placeholder">
+      <div>
+        <div v-if="!store.item14">
+          <div class="img">
+            <el-image @click="stone1" :src="src"  />
+          </div>
+        </div>
 
-      <div v-if="!store.item14">
-        <div class="img">
-          <el-image @click="stone1" :src="src"  />
+        <div class="block" v-if="!store.item26">
+          <el-image @click="stone2" :src="src" />
+        </div>
+
+        <div class="block" v-if="!store.item40">
+          <el-image @click="stone3" :src="src"/>
+        </div>
+        <div class="block" v-if="!store.item51">
+          <el-image @click="stone4" :src="src"/>
+        </div>
+        <div class="block" v-if="!store.item63">
+          <el-image @click="stone5" :src="src"/>
         </div>
       </div>
-
-      <div class="block" v-if="!store.item26">
-        <el-image @click="stone2" :src="src" />
-      </div>
-
-      <div class="block" v-if="!store.item40">
-        <el-image @click="stone3" :src="src"/>
-      </div>
-      <div class="block" v-if="!store.item51">
-        <el-image @click="stone4" :src="src"/>
-      </div>
-      <div class="block" v-if="!store.item63">
-        <el-image @click="stone5" :src="src"/>
-      </div>
     </div>
+  </main>
 </template>
 
 <script setup lang="ts">
+import {onBeforeMount} from "vue";
 import useStore from "../store/store";
 import {ElMessageBox} from "element-plus";
+
+onBeforeMount(()=>{
+  if(store.item14 === false && store.item26 === false && store.item40 === false && store.item51 === false && store.item63=== false){
+    store.theEnd = true;
+    store.item14 = true;
+    store.item26 = true;
+    store.item40 = true;
+    store.item51 = true;
+    store.item63 = true;
+  }
+})
 
 const store = useStore()
 
@@ -69,5 +87,11 @@ const stone1 = ()=>{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.theEndBtn{
+  margin-top: 5rem;
+  width: 15rem;
+  height: 15rem;
 }
 </style>
